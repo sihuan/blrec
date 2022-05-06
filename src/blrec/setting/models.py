@@ -371,7 +371,7 @@ class PushdeerSettings(BaseModel):
 
     @validator('pushkey')
     def _validate_pushkey(cls, value: str) -> str:
-        if value != '' and not re.fullmatch(r'[a-zA-Z\d]{41}', value):
+        if value != '' and not re.fullmatch(r'PDU\d*T[a-zA-Z\d]{32}', value):
             raise ValueError('pushkey is invalid')
         return value
 
